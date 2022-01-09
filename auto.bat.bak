@@ -1,0 +1,3 @@
+git add -u                               
+git commit -m "pushpro"      
+git push origin master                   
