@@ -5,7 +5,7 @@ var cron = require('node-cron');
     let status = 0;
     cron.schedule('* * * * *', async() => {
         status++;
-        await exec("git add .", (error, stdout, stderr) => {
+        await exec('git add .', (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 
@@ -16,7 +16,7 @@ var cron = require('node-cron');
             }
             console.log(`stdout: ${stdout}`);
         });
-        await exec("git commit -m 'push' ", (error, stdout, stderr) => {
+        await exec('git commit -m "push" ', (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
                 
