@@ -8,15 +8,38 @@ var cron = require('node-cron');
         await exec("git add .", (error, stdout, stderr) => {
             if (error) {
                 console.log(`error: ${error.message}`);
-                return;
+                
             }
             if (stderr) {
                 console.log(`stderr: ${stderr}`);
-                return;
+                
             }
             console.log(`stdout: ${stdout}`);
         });
-        
-	})
+        await exec("git commit -m 'push " + status+"'", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+
+        await exec("git push origin master", (error, stdout, stderr) => {
+            if (error) {
+                console.log(`error: ${error.message}`);
+                
+            }
+            if (stderr) {
+                console.log(`stderr: ${stderr}`);
+                
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+    });
+
 })()
 
